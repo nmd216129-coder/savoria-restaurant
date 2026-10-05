@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SAVORIA | Your Cart</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: #0b0b0b;
+      border-bottom: 1px solid #292929;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: #d9a441;
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #d9a441;
+    }
+
+    .menu-btn {
+      background: #d9a441;
+      color: #111 !important;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 75px 20px 50px;
+      background:
+        linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+        url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+    }
+
+    .hero small {
+      color: #d9a441;
+      letter-spacing: 4px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 12px 0;
+    }
+
+    .hero p {
+      color: #aaa;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    .cart-box {
+      background: #1b1b1b;
+      border: 1px solid #292929;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .cart-header {
+      padding: 22px;
+      border-bottom: 1px solid #292929;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h2 {
+      font-size: 24px;
+    }
+
+    #cartCount {
+      color: #d9a441;
+    }
+
+    .cart-item {
+      padding: 20px;
+      border-bottom: 1px solid #292929;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .item-info h3 {
+      margin-bottom: 5px;
+    }
+
+    .item-info p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    .item-price {
+      color: #d9a441;
+      font-weight: bold;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quantity button {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #444;
+      background: #222;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .quantity button:hover {
+      background: #d9a441;
+      color: #111;
+    }
+
+    .remove {
+      border: none;
+      background: transparent;
+      color: #e57373;
+      cursor: pointer;
+    }
+
+    .summary {
+      padding: 25px;
+      background: #151515;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      color: #bbb;
+    }
+
+    .summary-row.total {
+      border-top: 1px solid #333;
+      padding-top: 18px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .total-price {
+      color: #d9a441;
+    }
+
+    .checkout {
+      display: block;
+      width: 100%;
+      margin-top: 22px;
+      padding: 15px;
+      border: none;
+      border-radius: 30px;
+      background: #d9a441;
+      color: #111;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .checkout:hover {
+      background: #f0bd58;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 70px 20px;
+      color: #888;
+    }
+
+    .empty-icon {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .empty h2 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .empty a {
+      display: inline-block;
+      margin-top: 20px;
+      background: #d9a441;
+      color: #111;
+      padding: 12px 22px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #0b0b0b;
+      text-align: center;
+      padding: 35px 20px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .quantity {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <nav class="navbar">
+
+    <a href="index.html" class="logo">
+      SAVORIA
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="reservation.html">Reservation</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <a href="menu.html" class="menu-btn">
+      🍽️ Menu
+    </a>
+
+  </nav>
+
+</header>
+
+
+<section class="hero">
+
+  <small>YOUR ORDER</small>
+
+  <h1>Shopping Cart</h1>
+
+  <p>Review your delicious selections before ordering.</p>
+
+</section>
+
+
+<main class="container">
+
+  <div class="cart-box">
+
+    <div class="cart-header">
+
+      <h2>Your Items</h2>
+
+      <span>
+        <span id="cartCount">0</span> items
+      </span>
+
+    </div>
+
+
+    <div id="cartItems">
+
+      <div class="empty">
+
+        <div class="empty-icon">🛒</div>
+
+        <h2>Your cart is empty</h2>
+
+        <p>
+          Add some delicious dishes from our menu.
+        </p>
+
+        <a href="menu.html">
+          Explore Menu
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="summary">
+
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span id="subtotal">$0.00</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Service Fee</span>
+        <span id="serviceFee">$0.00</span>
+      </div>
+
+      <div class="summary-row total">
+        <span>Total</span>
+        <span class="total-price" id="total">$0.00</span>
+      </div>
+
+      <button class="checkout" onclick="checkout()">
+        Proceed to Order
+      </button>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  © 2026 SAVORIA — Portfolio Restaurant Website
+
+</footer>
+
+
+<script>
+
+  let cart = JSON.parse(localStorage.getItem("savoriaCart")) || [];
+
+
+  function saveCart() {
+
+    localStorage.setItem(
+      "savoriaCart",
+      JSON.stringify(cart)
+    );
+
+  }
+
+
+  function displayCart() {
+
+    const cartItems =
+      document.getElementById("cartItems");
+
+    const cartCount =
+      document.getElementById("cartCount");
+
+    const subtotalElement =
+      document.getElementById("subtotal");
+
+    const serviceFeeElement =
+      document.getElementById("serviceFee");
+
+    const totalElement =
+      document.getElementById("total");
+
+
+    if (cart.length === 0) {
+
+      cartItems.innerHTML = `
+        <div class="empty">
+          <div class="empty-icon">🛒</div>
+          <h2>Your cart is empty</h2>
+          <p>Add some delicious dishes from our menu.</p>
+          <a href="menu.html">Explore Menu</a>
+        </div>
+      `;
+
+      cartCount.textContent = "0";
+      subtotalElement.textContent = "$0.00";
+      serviceFeeElement.textContent = "$0.00";
+      totalElement.textContent = "$0.00";
+
+      return;
+    }
+
+
+    let subtotal = 0;
+    let totalItems = 0;
+
+    let html = "";
+
+
+    cart.forEach(function(item, index) {
+
+      const itemTotal =
+        item.price * item.quantity;
+
+      subtotal += itemTotal;
+
+      totalItems += item.quantity;
+
+
+      html += `
+
+        <div class="cart-item">
+
+          <div class="item-info">
+
+            <h3>${item.name}</h3>
+
+            <p>
+              $${item.price.toFixed(2)} × ${item.quantity}
+            </p>
+
+          </div>
+
+
+          <div class="quantity">
+
+            <button onclick="changeQuantity(${index}, -1)">
+              −
+            </button>
+
+            <strong>
+              ${item.quantity}
+            </strong>
+
+            <button onclick="changeQuantity(${index}, 1)">
+              +
+            </button>
+
+            <span class="item-price">
+              $${itemTotal.toFixed(2)}
+            </span>
+
+            <button
+              class="remove"
+              onclick="removeItem(${index})">
+              Remove
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    });
+
+
+    cartItems.innerHTML = html;
+
+    const serviceFee =
+      subtotal > 0 ? 2 : 0;
+
+    const total =
+      subtotal + serviceFee;
+
+
+    cartCount.textContent = totalItems;
+
+    subtotalElement.textContent =
+      "$" + subtotal.toFixed(2);
+
+    serviceFeeElement.textContent =
+      "$" + serviceFee.toFixed(2);
+
+    totalElement.textContent =
+      "$" + total.toFixed(2);
+
+  }
+
+
+  function changeQuantity(index, amount) {
+
+    cart[index].quantity += amount;
+
+    if (cart[index].quantity <= 0) {
+      cart.splice(index, 1);
+    }
+
+    saveCart();
+
+    displayCart();
+
+  }
+
+
+  function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    saveCart();
+
+    displayCart();
+
+  }
+
+
+  function checkout() {
+
+    if (cart.length === 0) {
+
+      alert("Your cart is empty!");
+
+      return;
+    }
+
+    alert(
+      "Thank you for choosing SAVORIA! 🍽️\n\n" +
+      "This is a portfolio demo checkout."
+    );
+
+  }
+
+
+  displayCart();
+
+</script>
+
+</body>
+</html>
