@@ -629,12 +629,37 @@
 
   function addToCart(name, price) {
 
-    alert(
-      name +
-      " added to your cart! 🛒"
-    );
+  let cart =
+    JSON.parse(localStorage.getItem("savoriaCart")) || [];
+
+  const existingItem = cart.find(function(item) {
+    return item.name === name;
+  });
+
+  if (existingItem) {
+
+    existingItem.quantity += 1;
+
+  } else {
+
+    cart.push({
+      name: name,
+      price: price,
+      quantity: 1
+    });
 
   }
+
+  localStorage.setItem(
+    "savoriaCart",
+    JSON.stringify(cart)
+  );
+
+  alert(
+    name + " added to your cart! 🛒"
+  );
+
+}
 
 </script>
 
