@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SAVORIA | About Us</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: #0b0b0b;
+      border-bottom: 1px solid #292929;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #d9a441;
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #d9a441;
+    }
+
+    .cart-btn {
+      background: #d9a441;
+      color: #111;
+      padding: 10px 17px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 85px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+    }
+
+    .hero small {
+      color: #d9a441;
+      letter-spacing: 4px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin: 12px 0;
+    }
+
+    .hero p {
+      color: #ccc;
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .story-text small {
+      color: #d9a441;
+      letter-spacing: 3px;
+    }
+
+    .story-text h2 {
+      font-size: 38px;
+      margin: 15px 0 20px;
+    }
+
+    .story-text p {
+      color: #aaa;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 70px;
+    }
+
+    .stat {
+      text-align: center;
+      background: #1b1b1b;
+      border: 1px solid #292929;
+      border-radius: 15px;
+      padding: 30px 15px;
+    }
+
+    .stat h3 {
+      color: #d9a441;
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .stat p {
+      color: #999;
+    }
+
+    .values {
+      margin-top: 90px;
+      text-align: center;
+    }
+
+    .values > small {
+      color: #d9a441;
+      letter-spacing: 3px;
+    }
+
+    .values h2 {
+      font-size: 38px;
+      margin: 12px 0 40px;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .value-card {
+      background: #1b1b1b;
+      border: 1px solid #292929;
+      border-radius: 15px;
+      padding: 35px 25px;
+    }
+
+    .icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .value-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .value-card p {
+      color: #999;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .cta {
+      margin-top: 90px;
+      padding: 60px 25px;
+      text-align: center;
+      border-radius: 18px;
+      background:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+        url("https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1400&q=85")
+        center/cover;
+    }
+
+    .cta h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #ddd;
+      margin-bottom: 25px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: #d9a441;
+      color: #111;
+      padding: 13px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #0b0b0b;
+      text-align: center;
+      padding: 35px 20px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+
+      .navbar {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .story {
+        grid-template-columns: 1fr;
+      }
+
+      .story-image img {
+        height: 300px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <nav class="navbar">
+
+    <a href="index.html" class="logo">
+      SAVORIA
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="reservation.html">Reservation</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <a href="cart.html" class="cart-btn">
+      🛒 Cart
+    </a>
+
+  </nav>
+
+</header>
+
+
+<section class="hero">
+
+  <small>OUR STORY</small>
+
+  <h1>About SAVORIA</h1>
+
+  <p>
+    A modern dining experience built around fresh ingredients,
+    beautiful flavors and unforgettable moments.
+  </p>
+
+</section>
+
+
+<main class="container">
+
+
+  <section class="story">
+
+    <div class="story-image">
+
+      <img
+        src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=85"
+        alt="SAVORIA restaurant">
+
+    </div>
+
+
+    <div class="story-text">
+
+      <small>WHO WE ARE</small>
+
+      <h2>Food Made With Passion</h2>
+
+      <p>
+        SAVORIA was created with one simple idea:
+        great food should bring people together.
+      </p>
+
+      <p>
+        Our kitchen combines fresh ingredients,
+        thoughtful preparation and modern presentation
+        to create dishes that are both delicious and memorable.
+      </p>
+
+      <p>
+        Whether you are joining us for a special celebration
+        or a casual dinner, we want every visit to feel special.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="stats">
+
+    <div class="stat">
+      <h3>10+</h3>
+      <p>Years of Experience</p>
+    </div>
+
+    <div class="stat">
+      <h3>50+</h3>
+      <p>Signature Dishes</p>
+    </div>
+
+    <div class="stat">
+      <h3>20K+</h3>
+      <p>Happy Guests</p>
+    </div>
+
+  </section>
+
+
+  <section class="values">
+
+    <small>WHAT WE BELIEVE</small>
+
+    <h2>Our Values</h2>
+
+
+    <div class="value-grid">
+
+      <div class="value-card">
+
+        <div class="icon">🥬</div>
+
+        <h3>Fresh Ingredients</h3>
+
+        <p>
+          We believe great dishes start with
+          quality and carefully selected ingredients.
+        </p>
+
+      </div>
+
+
+      <div class="value-card">
+
+        <div class="icon">👨‍🍳</div>
+
+        <h3>Passionate Cooking</h3>
+
+        <p>
+          Every dish is prepared with attention,
+          creativity and genuine passion.
+        </p>
+
+      </div>
+
+
+      <div class="value-card">
+
+        <div class="icon">❤️</div>
+
+        <h3>Warm Hospitality</h3>
+
+        <p>
+          We want every guest to feel welcome,
+          comfortable and appreciated.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="cta">
+
+    <h2>Ready for a Great Meal?</h2>
+
+    <p>
+      Explore our menu and discover your next favorite dish.
+    </p>
+
+    <a href="menu.html">
+      Explore Our Menu
+    </a>
+
+  </section>
+
+
+</main>
+
+
+<footer>
+
+  © 2026 SAVORIA — Portfolio Restaurant Website
+
+</footer>
+
+</body>
+</html>
