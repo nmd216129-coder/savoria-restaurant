@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -196,3 +197,446 @@
       background: #0b0b0b;
       text-align: center;
       padding: 35px 20px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+
+      .navbar {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-title h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <nav class="navbar">
+
+    <a href="index.html" class="logo">
+      SAVORIA
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="reservation.html">Reservation</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <a href="cart.html" class="cart-btn">
+      🛒 Cart
+    </a>
+
+  </nav>
+
+</header>
+
+
+<section class="page-title">
+
+  <small>EXPLORE OUR MENU</small>
+
+  <h1>Delicious Choices</h1>
+
+  <p>
+    Fresh ingredients. Beautiful flavors. Made with passion.
+  </p>
+
+</section>
+
+
+<main class="container">
+
+  <div class="categories">
+
+    <button class="category active" onclick="filterMenu('all', this)">
+      All
+    </button>
+
+    <button class="category" onclick="filterMenu('starter', this)">
+      Starters
+    </button>
+
+    <button class="category" onclick="filterMenu('main', this)">
+      Main Course
+    </button>
+
+    <button class="category" onclick="filterMenu('dessert', this)">
+      Desserts
+    </button>
+
+    <button class="category" onclick="filterMenu('drink', this)">
+      Drinks
+    </button>
+
+  </div>
+
+
+  <div class="menu-grid">
+
+
+    <!-- FOOD 1 -->
+
+    <div class="food-card" data-category="starter">
+
+      <img
+        src="https://images.unsplash.com/photo-1541014741259-de529411b96a?auto=format&fit=crop&w=900&q=85"
+        alt="Fresh salad">
+
+      <div class="food-info">
+
+        <h3>Garden Fresh Salad</h3>
+
+        <p>
+          Crisp vegetables with our signature dressing.
+        </p>
+
+        <div class="bottom">
+
+          <span class="price">$10</span>
+
+          <button class="order-btn"
+            onclick="addToCart('Garden Fresh Salad', 10)">
+            Add
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOD 2 -->
+
+    <div class="food-card" data-category="main">
+
+      <img
+        src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85"
+        alt="Grilled steak">
+
+      <div class="food-info">
+
+        <h3>Grilled Signature Steak</h3>
+
+        <p>
+          Juicy grilled steak with herbs and vegetables.
+        </p>
+
+        <div class="bottom">
+
+          <span class="price">$24</span>
+
+          <button class="order-btn"
+            onclick="addToCart('Grilled Signature Steak', 24)">
+            Add
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOD 3 -->
+
+    <div class="food-card" data-category="main">
+
+      <img
+        src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=85"
+        alt="Pasta">
+
+      <div class="food-info">
+
+        <h3>Creamy Italian Pasta</h3>
+
+        <p>
+          Handmade pasta with creamy signature sauce.
+        </p>
+
+        <div class="bottom">
+
+          <span class="price">$17</span>
+
+          <button class="order-btn"
+            onclick="addToCart('Creamy Italian Pasta', 17)">
+            Add
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOD 4 -->
+
+    <div class="food-card" data-category="main">
+
+      <img
+        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=85"
+        alt="Pizza">
+
+      <div class="food-info">
+
+        <h3>Artisan Margherita Pizza</h3>
+
+        <p>
+          Fresh mozzarella, tomato and basil.
+        </p>
+
+        <div class="bottom">
+
+          <span class="price">$18</span>
+
+          <button class="order-btn"
+            onclick="addToCart('Artisan Margherita Pizza', 18)">
+            Add
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOD 5 -->
+
+    <div class="food-card" data-category="dessert">
+
+      <img
+        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+        alt="Chocolate cake">
+
+      <div class="food-info">
+
+        <h3>Chocolate Celebration Cake</h3>
+
+        <p>
+          Rich chocolate cake with smooth cream.
+        </p>
+
+        <div class="bottom">
+
+          <span class="price">$9</span>
+
+          <button class="order-btn"
+            onclick="addToCart('Chocolate Celebration Cake', 9)">
+            Add
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOD 6 -->
+
+    <div class="food-card" data-category="dessert">
+
+      <img
+        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85"
+        alt="Dessert">
+
+      <div class="food-info">
+
+        <h3>Golden Cream Dessert</h3>
+
+        <p>
+          A delicate sweet finish for your dining experience.
+        </p>
+
+        <div class="bottom">
+
+          <span class="price">$8</span>
+
+          <button class="order-btn"
+            onclick="addToCart('Golden Cream Dessert', 8)">
+            Add
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOD 7 -->
+
+    <div class="food-card" data-category="drink">
+
+      <img
+        src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85"
+        alt="Fresh drink">
+
+      <div class="food-info">
+
+        <h3>Fresh Citrus Cooler</h3>
+
+        <p>
+          Refreshing citrus drink with fresh mint.
+        </p>
+
+        <div class="bottom">
+
+          <span class="price">$6</span>
+
+          <button class="order-btn"
+            onclick="addToCart('Fresh Citrus Cooler', 6)">
+            Add
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOD 8 -->
+
+    <div class="food-card" data-category="drink">
+
+      <img
+        src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85"
+        alt="Coffee">
+
+      <div class="food-info">
+
+        <h3>Premium Coffee</h3>
+
+        <p>
+          Smooth roasted coffee served fresh.
+        </p>
+
+        <div class="bottom">
+
+          <span class="price">$5</span>
+
+          <button class="order-btn"
+            onclick="addToCart('Premium Coffee', 5)">
+            Add
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOD 9 -->
+
+    <div class="food-card" data-category="starter">
+
+      <img
+        src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
+        alt="Appetizer">
+
+      <div class="food-info">
+
+        <h3>Crispy Golden Bites</h3>
+
+        <p>
+          Crunchy bites served with our special sauce.
+        </p>
+
+        <div class="bottom">
+
+          <span class="price">$11</span>
+
+          <button class="order-btn"
+            onclick="addToCart('Crispy Golden Bites', 11)">
+            Add
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  © 2026 SAVORIA — Portfolio Restaurant Website
+
+</footer>
+
+
+<script>
+
+  function filterMenu(category, button) {
+
+    const cards = document.querySelectorAll(".food-card");
+
+    const buttons = document.querySelectorAll(".category");
+
+    buttons.forEach(function(btn) {
+      btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    cards.forEach(function(card) {
+
+      if (
+        category === "all" ||
+        card.dataset.category === category
+      ) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+
+    });
+
+  }
+
+
+  function addToCart(name, price) {
+
+    alert(
+      name +
+      " added to your cart! 🛒"
+    );
+
+  }
+
+</script>
+
+</body>
+</html>
