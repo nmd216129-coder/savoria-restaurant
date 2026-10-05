@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SAVORIA | Menu</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: #0b0b0b;
+      border-bottom: 1px solid #292929;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #d9a441;
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #d9a441;
+    }
+
+    .cart-btn {
+      background: #d9a441;
+      color: #111;
+      padding: 10px 17px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    .page-title {
+      text-align: center;
+      padding: 80px 20px 50px;
+      background:
+        linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8)),
+        url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+    }
+
+    .page-title small {
+      color: #d9a441;
+      letter-spacing: 4px;
+    }
+
+    .page-title h1 {
+      font-size: 50px;
+      margin: 12px 0;
+    }
+
+    .page-title p {
+      color: #ccc;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .category {
+      border: 1px solid #444;
+      background: #1b1b1b;
+      color: #ddd;
+      padding: 11px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    .category:hover,
+    .category.active {
+      background: #d9a441;
+      color: #111;
+      border-color: #d9a441;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .food-card {
+      background: #1b1b1b;
+      border: 1px solid #292929;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .food-card:hover {
+      transform: translateY(-6px);
+      border-color: #d9a441;
+    }
+
+    .food-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .food-info {
+      padding: 20px;
+    }
+
+    .food-info h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .food-info p {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .price {
+      color: #d9a441;
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .order-btn {
+      border: none;
+      background: #d9a441;
+      color: #111;
+      padding: 10px 14px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .order-btn:hover {
+      background: #f0bd58;
+    }
+
+    footer {
+      background: #0b0b0b;
+      text-align: center;
+      padding: 35px 20px;
