@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SAVORIA | Contact</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: #0b0b0b;
+      border-bottom: 1px solid #292929;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #d9a441;
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #d9a441;
+    }
+
+    .cart-btn {
+      background: #d9a441;
+      color: #111;
+      padding: 10px 17px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+        url("https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+    }
+
+    .hero small {
+      color: #d9a441;
+      letter-spacing: 4px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      margin: 12px 0;
+    }
+
+    .hero p {
+      color: #ccc;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 75px 20px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 30px;
+    }
+
+    .contact-info,
+    .contact-form {
+      background: #1b1b1b;
+      border: 1px solid #292929;
+      border-radius: 16px;
+      padding: 35px;
+    }
+
+    .contact-info small {
+      color: #d9a441;
+      letter-spacing: 3px;
+    }
+
+    .contact-info h2 {
+      font-size: 32px;
+      margin: 12px 0 20px;
+    }
+
+    .contact-info > p {
+      color: #999;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .icon {
+      font-size: 26px;
+    }
+
+    .info-item h3 {
+      margin-bottom: 6px;
+    }
+
+    .info-item p {
+      color: #999;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .contact-form h2 {
+      margin-bottom: 25px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      color: #ccc;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #3a3a3a;
+      border-radius: 8px;
+      background: #111;
+      color: #fff;
+      outline: none;
+      font-size: 14px;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #d9a441;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 30px;
+      background: #d9a441;
+      color: #111;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #f0bd58;
+    }
+
+    .success {
+      display: none;
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 8px;
+      background: #18351f;
+      border: 1px solid #315f3b;
+      color: #b9e5c2;
+      text-align: center;
+    }
+
+    .map-section {
+      margin-top: 35px;
+      height: 300px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #292929;
+    }
+
+    .map-section iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(100%) brightness(.7);
+    }
+
+    footer {
+      background: #0b0b0b;
+      text-align: center;
+      padding: 35px 20px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+
+      .navbar {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <nav class="navbar">
+
+    <a href="index.html" class="logo">
+      SAVORIA
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="reservation.html">Reservation</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <a href="cart.html" class="cart-btn">
+      🛒 Cart
+    </a>
+
+  </nav>
+
+</header>
+
+
+<section class="hero">
+
+  <small>GET IN TOUCH</small>
+
+  <h1>Contact Us</h1>
+
+  <p>
+    Have a question? We'd love to hear from you.
+  </p>
+
+</section>
+
+
+<main class="container">
+
+  <div class="contact-grid">
+
+
+    <div class="contact-info">
+
+      <small>CONTACT SAVORIA</small>
+
+      <h2>Let's Talk</h2>
+
+      <p>
+        Whether you have a question about our menu,
+        reservations or private events, feel free to contact us.
+      </p>
+
+
+      <div class="info-item">
+
+        <div class="icon">📍</div>
+
+        <div>
+
+          <h3>Our Location</h3>
+
+          <p>
+            123 Main Street<br>
+            Downtown, Your City
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <div class="icon">📞</div>
+
+        <div>
+
+          <h3>Phone</h3>
+
+          <p>
+            +1 234 567 8900
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <div class="icon">✉️</div>
+
+        <div>
+
+          <h3>Email</h3>
+
+          <p>
+            hello@savoria.com
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <div class="icon">🕐</div>
+
+        <div>
+
+          <h3>Opening Hours</h3>
+
+          <p>
+            Monday – Sunday<br>
+            11:00 AM – 11:00 PM
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="contact-form">
+
+      <h2>Send Us a Message</h2>
+
+      <form id="contactForm">
+
+        <div class="field">
+
+          <label>Your Name</label>
+
+          <input
+            type="text"
+            placeholder="Enter your name"
+            required>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Email Address</label>
+
+          <input
+            type="email"
+            placeholder="Enter your email"
+            required>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Subject</label>
+
+          <input
+            type="text"
+            placeholder="What is this about?"
+            required>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Message</label>
+
+          <textarea
+            placeholder="Write your message..."
+            required></textarea>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="submit-btn">
+
+          Send Message
+
+        </button>
+
+
+        <div
+          class="success"
+          id="successMessage">
+
+          ✅ Thank you! Your message has been received.
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <div class="map-section">
+
+    <iframe
+      src="https://www.google.com/maps?q=New%20York%20City&output=embed"
+      loading="lazy">
+    </iframe>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  © 2026 SAVORIA — Portfolio Restaurant Website
+
+</footer>
+
+
+<script>
+
+  document
+    .getElementById("contactForm")
+    .addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      document
+        .getElementById("successMessage")
+        .style.display = "block";
+
+      this.reset();
+
+    });
+
+</script>
+
+</body>
+</html>
