@@ -4,23 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SAVORIA | Modern Restaurant</title>
+  <title>SAVORIA | Premium Restaurant</title>
+
+  <meta name="description" content="SAVORIA - A premium restaurant experience with delicious food and elegant dining.">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    html {
       scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #111111;
-      color: #ffffff;
+      background: #111;
+      color: #fff;
       line-height: 1.6;
     }
 
@@ -29,23 +28,19 @@
       color: inherit;
     }
 
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    /* HEADER */
-
+    /* NAVBAR */
     header {
-      background: rgba(17, 17, 17, 0.96);
-      border-bottom: 1px solid #2b2b2b;
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 1000;
+      background: rgba(10, 10, 10, 0.95);
+      border-bottom: 1px solid #292929;
     }
 
-    .navbar {
-      max-width: 1150px;
+    nav {
+      max-width: 1200px;
       margin: auto;
       padding: 18px 20px;
       display: flex;
@@ -54,7 +49,7 @@
     }
 
     .logo {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: bold;
       letter-spacing: 3px;
       color: #d9a441;
@@ -62,12 +57,12 @@
 
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 22px;
       list-style: none;
     }
 
     .nav-links a {
-      color: #eeeeee;
+      color: #fff;
       font-size: 14px;
       transition: 0.3s;
     }
@@ -76,7 +71,690 @@
       color: #d9a441;
     }
 
-    .nav-btn {
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 130px 20px 70px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.72)),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85")
+        center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .hero-text {
+      max-width: 650px;
+    }
+
+    .small-title {
+      color: #d9a441;
+      font-size: 16px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      line-height: 1;
+      margin-bottom: 22px;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 span {
+      color: #d9a441;
+    }
+
+    .hero p {
+      color: #ddd;
+      font-size: 18px;
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-gold {
       background: #d9a441;
-      color: #111111 !important;
-      padding: 
+      color: #111;
+    }
+
+    .btn-gold:hover {
+      background: #f0c15d;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid #d9a441;
+      color: #d9a441;
+    }
+
+    .btn-outline:hover {
+      background: #d9a441;
+      color: #111;
+    }
+
+    /* COMMON */
+    section {
+      padding: 90px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title small {
+      color: #d9a441;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
+      margin-top: 10px;
+    }
+
+    .section-title p {
+      color: #aaa;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+
+    /* FEATURED MENU */
+    .menu-section {
+      background: #181818;
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .food-card {
+      background: #222;
+      border: 1px solid #303030;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .food-card:hover {
+      transform: translateY(-7px);
+      border-color: #d9a441;
+    }
+
+    .food-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .food-info {
+      padding: 22px;
+    }
+
+    .food-info h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .food-info p {
+      color: #aaa;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      color: #d9a441;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* ABOUT */
+    .about {
+      background: #111;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .about-text small {
+      color: #d9a441;
+      letter-spacing: 3px;
+    }
+
+    .about-text h2 {
+      font-size: 42px;
+      margin: 12px 0 20px;
+    }
+
+    .about-text p {
+      color: #aaa;
+      margin-bottom: 18px;
+    }
+
+    /* FEATURES */
+    .features {
+      background: #181818;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feature {
+      background: #222;
+      padding: 35px 25px;
+      text-align: center;
+      border-radius: 10px;
+      border: 1px solid #303030;
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    /* RESERVATION */
+    .reservation {
+      text-align: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1600&q=85")
+        center/cover no-repeat;
+    }
+
+    .reservation h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .reservation p {
+      color: #ddd;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #090909;
+      padding: 55px 20px 25px;
+      border-top: 1px solid #292929;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-logo {
+      color: #d9a441;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 9px;
+    }
+
+    .footer-links a {
+      color: #999;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: #d9a441;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #292929;
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .hero h1 {
+        font-size: 50px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .food-grid,
+      .feature-grid,
+      .about-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image img {
+        height: 350px;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+      .about-text h2 {
+        font-size: 34px;
+      }
+
+      .reservation h2 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">SAVORIA</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="reservation.html">Reservation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">🛒 Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+
+      <div class="hero-text">
+
+        <div class="small-title">
+          Welcome to SAVORIA
+        </div>
+
+        <h1>
+          Taste the <span>Extraordinary.</span>
+        </h1>
+
+        <p>
+          Experience delicious flavors, elegant dining and unforgettable
+          moments at SAVORIA Restaurant.
+        </p>
+
+        <div class="buttons">
+          <a href="menu.html" class="btn btn-gold">
+            Explore Menu
+          </a>
+
+          <a href="reservation.html" class="btn btn-outline">
+            Book a Table
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FEATURED MENU -->
+  <section class="menu-section">
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>Our Specialties</small>
+        <h2>Featured Dishes</h2>
+        <p>
+          Discover some of our most loved dishes prepared with fresh
+          ingredients and passion.
+        </p>
+      </div>
+
+
+      <div class="food-grid">
+
+        <div class="food-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80"
+            alt="Fresh Salad">
+
+          <div class="food-info">
+            <h3>Garden Fresh Salad</h3>
+
+            <p>
+              Fresh vegetables, herbs and our signature dressing.
+            </p>
+
+            <div class="price">
+              ৳450
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="food-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80"
+            alt="Pizza">
+
+          <div class="food-info">
+            <h3>Italian Classic Pizza</h3>
+
+            <p>
+              Crispy crust, rich cheese and delicious toppings.
+            </p>
+
+            <div class="price">
+              ৳850
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="food-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=80"
+            alt="Burger">
+
+          <div class="food-info">
+            <h3>Premium Beef Burger</h3>
+
+            <p>
+              Juicy beef patty with fresh vegetables and special sauce.
+            </p>
+
+            <div class="price">
+              ৳650
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div style="text-align:center; margin-top:40px;">
+        <a href="menu.html" class="btn btn-gold">
+          View Full Menu →
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about">
+
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div class="about-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=85"
+            alt="SAVORIA Restaurant">
+
+        </div>
+
+
+        <div class="about-text">
+
+          <small>ABOUT SAVORIA</small>
+
+          <h2>
+            Food Made With Passion
+          </h2>
+
+          <p>
+            At SAVORIA, we believe great food brings people together.
+            Our chefs carefully prepare every dish using quality
+            ingredients and creative techniques.
+          </p>
+
+          <p>
+            Whether you are enjoying a romantic dinner, celebrating
+            with family or meeting friends, SAVORIA is the perfect
+            place for memorable moments.
+          </p>
+
+          <a href="about.html" class="btn btn-gold">
+            Discover Our Story
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+  <section class="features">
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>Why Choose Us</small>
+        <h2>The SAVORIA Experience</h2>
+      </div>
+
+
+      <div class="feature-grid">
+
+        <div class="feature">
+          <div class="feature-icon">🍽️</div>
+
+          <h3>Premium Food</h3>
+
+          <p>
+            Carefully prepared dishes made from quality ingredients.
+          </p>
+        </div>
+
+
+        <div class="feature">
+          <div class="feature-icon">👨‍🍳</div>
+
+          <h3>Expert Chefs</h3>
+
+          <p>
+            Our talented chefs bring creativity and passion to every plate.
+          </p>
+        </div>
+
+
+        <div class="feature">
+          <div class="feature-icon">✨</div>
+
+          <h3>Elegant Atmosphere</h3>
+
+          <p>
+            Enjoy your meal in a comfortable and stylish environment.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- RESERVATION -->
+  <section class="reservation">
+
+    <div class="container">
+
+      <h2>
+        Ready for a Delicious Experience?
+      </h2>
+
+      <p>
+        Reserve your table today and enjoy an unforgettable dining
+        experience at SAVORIA.
+      </p>
+
+      <a href="reservation.html" class="btn btn-gold">
+        Reserve Your Table
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+
+        <div class="footer-logo">
+          SAVORIA
+        </div>
+
+        <p>
+          Premium dining, delicious food and unforgettable moments.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Quick Links</h3>
+
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h3>Contact</h3>
+
+        <ul class="footer-links">
+          <li>📍 Dhaka, Bangladesh</li>
+          <li>📞 +880 1234-567890</li>
+          <li>✉️ hello@savoria.com</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 SAVORIA Restaurant. All Rights Reserved.
+    </div>
+
+  </footer>
+
+</body>
+</html>
